@@ -1,7 +1,9 @@
 {
   "name": "to-regex-range",
   "description": "Pass two numbers, get a regex-compatible source string for matching ranges. Validated against more than 2.78 million test assertions.",
-  "version": "5.0.1",
+  "version": "5.0.2",
+  "main": "index.js",
+  "module": "index.mjs",
   "homepage": "https://github.com/micromatch/to-regex-range",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
@@ -16,20 +18,24 @@
   "files": [
     "index.js"
   ],
-  "main": "index.js",
   "engines": {
     "node": ">=8.0"
   },
   "scripts": {
-    "test": "mocha"
+    "build": "rollup -c",
+    "mocha": "mocha",
+    "test": "run-s build mocha"
   },
   "dependencies": {
-    "is-number": "^7.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
     "fill-range": "^6.0.0",
     "gulp-format-md": "^2.0.0",
+    "npm-run-all": "^4.1.5",
     "mocha": "^6.0.2",
+    "rollup": "^2.18.1",
     "text-table": "^0.2.0",
     "time-diff": "^0.3.1"
   },

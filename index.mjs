@@ -1,5 +1,3 @@
-'use strict';
-
 /*!
  * to-regex-range <https://github.com/micromatch/to-regex-range>
  *
@@ -281,4 +279,4 @@ function padZeros(value, tok, options) {
 toRegexRange.cache = {};
 toRegexRange.clearCache = () => (toRegexRange.cache = {});
 
-module.exports = toRegexRange;
+export default toRegexRange;

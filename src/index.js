@@ -1,5 +1,3 @@
-'use strict';
-
 /*!
  * to-regex-range <https://github.com/micromatch/to-regex-range>
  *
@@ -73,7 +71,7 @@ const toRegexRange = (min, max, options) => {
 
   state.negatives = negatives;
   state.positives = positives;
-  state.result = collatePatterns(negatives, positives);
+  state.result = collatePatterns(negatives, positives, opts);
 
   if (opts.capture === true) {
     state.result = `(${state.result})`;
@@ -86,9 +84,9 @@ const toRegexRange = (min, max, options) => {
 };
 
 function collatePatterns(neg, pos, options) {
-  let onlyNegative = filterPatterns(neg, pos, '-', false) || [];
-  let onlyPositive = filterPatterns(pos, neg, '', false) || [];
-  let intersected = filterPatterns(neg, pos, '-?', true) || [];
+  let onlyNegative = filterPatterns(neg, pos, '-', false, options) || [];
+  let onlyPositive = filterPatterns(pos, neg, '', false, options) || [];
+  let intersected = filterPatterns(neg, pos, '-?', true, options) || [];
   let subpatterns = onlyNegative.concat(intersected).concat(onlyPositive);
   return subpatterns.join('|');
 }
@@ -143,7 +141,7 @@ function rangeToPattern(start, stop, options) {
       pattern += startDigit;
 
     } else if (startDigit !== '0' || stopDigit !== '9') {
-      pattern += toCharacterClass(startDigit, stopDigit);
+      pattern += toCharacterClass(startDigit, stopDigit, options);
 
     } else {
       count++;
@@ -281,4 +279,8 @@ function padZeros(value, tok, options) {
 toRegexRange.cache = {};
 toRegexRange.clearCache = () => (toRegexRange.cache = {});
 
-module.exports = toRegexRange;
+/**
+ * Expose `toRegexRange`
+ */
+
+export default toRegexRange;
