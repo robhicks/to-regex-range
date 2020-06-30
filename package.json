@@ -24,7 +24,6 @@
   "scripts": {
     "build": "rollup -c",
     "mocha": "mocha",
-    "postinstall": "npx rollup -c",
     "test": "run-s build mocha"
   },
   "dependencies": {},
