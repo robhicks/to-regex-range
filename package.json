@@ -16,7 +16,8 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "index.mjs"
   ],
   "engines": {
     "node": ">=10.0"
