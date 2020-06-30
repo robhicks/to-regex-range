@@ -19,15 +19,15 @@
     "index.js"
   ],
   "engines": {
-    "node": ">=8.0"
+    "node": ">=10.0"
   },
   "scripts": {
     "build": "rollup -c",
     "mocha": "mocha",
+    "postinstall": "run-s build",
     "test": "run-s build mocha"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
