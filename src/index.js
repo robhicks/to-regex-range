@@ -7,7 +7,7 @@
 
 const isNumber = num => Number.isInteger(Number(num));
 
-const toRegexRange = (min, max, options) => {
+export const toRegexRange = (min, max, options) => {
   if (isNumber(min) === false) {
     throw new TypeError('toRegexRange: expected the first argument to be a number');
   }
@@ -283,4 +283,3 @@ toRegexRange.clearCache = () => (toRegexRange.cache = {});
  * Expose `toRegexRange`
  */
 
-export default toRegexRange;

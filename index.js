@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 /*!
  * to-regex-range <https://github.com/micromatch/to-regex-range>
  *
@@ -281,4 +283,8 @@ function padZeros(value, tok, options) {
 toRegexRange.cache = {};
 toRegexRange.clearCache = () => (toRegexRange.cache = {});
 
-module.exports = toRegexRange;
+/**
+ * Expose `toRegexRange`
+ */
+
+exports.toRegexRange = toRegexRange;
