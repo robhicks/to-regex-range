@@ -279,8 +279,4 @@ function padZeros(value, tok, options) {
 toRegexRange.cache = {};
 toRegexRange.clearCache = () => (toRegexRange.cache = {});
 
-/**
- * Expose `toRegexRange`
- */
-
-export { toRegexRange };
+export default toRegexRange;
